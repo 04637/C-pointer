@@ -18,21 +18,9 @@ struct LoggingStringNode_class LoggingStringNode_class_table = {
  * insert
  */
 void LoggingNode_insert(void* thisv, void* nodev) {
-    struct StringNode* this = thisv;
     struct StringNode* node = nodev;
     printf("insert %s\n",node->s);
-    int c = this->class->compareTo(this, node);
-    if (c > 0) {
-        if (this->left == NULL)
-            this->left = node;
-        else
-            StringNode_class_table.insert(this->left, node);
-    } else {
-        if (this->right == NULL)
-            this->right = node;
-        else
-            StringNode_class_table.insert(this->right, node);
-    }
+    StringNode_class_table.insert(thisv, nodev);
 }
 
 void* new_LoggingStringNode(char* s) {

@@ -122,7 +122,7 @@ void list_map1(void (*f)(element_t *, element_t), struct list *out_list, struct 
     if (out_list == in_list)
         return;
     for (int i = 0; i < in_list->len; ++i) {
-		element_t* e = malloc(sizeof(element_t));
+		element_t e = malloc(sizeof(element_t));
 		f(&e, in_list->data[i]);
 		list_append(out_list, e);
 
@@ -146,7 +146,7 @@ void list_map2(void (*f)(element_t *, element_t, element_t), struct list *out_li
     if (out_list == in_list0 || out_list == in_list1)
         return;
     for (int i = 0; i < in_list0->len&&i<in_list1->len; ++i) {
-		element_t* e = malloc(sizeof(element_t));
+		element_t e = malloc(sizeof(element_t));
         f(&e, in_list0->data[i], in_list1->data[i]);
 		list_append(out_list, e);
 

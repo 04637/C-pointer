@@ -1,5 +1,5 @@
 .pos 0x0
-                 ld   $0x1028, r5         
+                 ld   $0x1028, r5
                  ld   $0xfffffff4, r0     
                  add  r0, r5              
                  ld   $0x200, r0          
@@ -14,16 +14,16 @@
                  gpc  $6, r6                  
                  j    0x300             
                  ld   $0x20c, r1          
-                 st   r0, 0x0(r1)         
-                 halt                     
+                 st   r0, 0x0(r1)
 .pos 0x200
+                 halt
                  .long 0x00000000         
                  .long 0x00000000         
                  .long 0x00000000         
                  .long 0x00000000         
 .pos 0x300
-                 ld   0x0(r5), r0         
-                 ld   0x4(r5), r1         
+                 ld   0x0(r5), r0         # r0 = &r5
+                 ld   0x4(r5), r1
                  ld   0x8(r5), r2         
                  ld   $0xfffffff6, r3     
                  add  r3, r0              
